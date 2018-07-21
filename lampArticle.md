@@ -480,3 +480,31 @@ Dashboards -> DasboardList -> MySQL
 <br />
 <!-- Custom Dashboards -->
 <h2> Custom Dashboards </h2>
+
+<p>
+Datadog dashboards allow you to gather customized vizualizations for any obtained metrics in one place. To create a custom dashboard, click on the "new dashboard" option in the Dashboards pane. Click on "add graphs" at the top of the page to drag and drop real-time vizualized metrics from all your integrations. For a full list of dashboard features, visit the
+<a href = "https://www.datadoghq.com/dashboarding/">
+Dashboarding page.
+</a>
+</p>
+
+<img src = "customdash.png">
+</p>
+<figcaption>
+A Custom Dashboard:
+<br />
+Dashboards -> New Dashboard
+</figcaption>
+</figure>
+
+<h3> Full LAMP Observability with Datadog </h3>
+<p>
+The LAMP solution stack is the most popular approach for hosting web apps and websites. We've shown you just a few ways to collect and visualize key metrics from each layer of your LAMP stack.
+<p>
+Datadog integrates with more than 250 other tools and services to provide a comprehensive, customizeable, and intuitive monitoring experience. Start monitoring your LAMP stack today with a
+<a href = "https://www.datadoghq.com/">
+free trial.
+</a>
+</p>
+
+</p>
