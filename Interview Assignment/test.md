@@ -51,15 +51,15 @@ Links
 <br />
 
 <p>
-Viewing system metrics from the host:  
+Viewing system metrics from the host:
 
 </p>
 
 <br />
 
 <p>
-Images:  
+Images:
 
 </p>
 
-<img src = "/Screenshots/L/system load.png" width = "100" height = "100">
+<img src = "systemload(1).png" width = "100" height = "100">
