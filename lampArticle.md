@@ -108,7 +108,7 @@ Now that you've installed the Datadog Agent on your host, you can begin integrat
 to see a full list of
 <a href = "https://docs.datadoghq.com/agent/basic_agent_usage/amazonlinux/">commands
 </a>
-for the Datadog agent.)
+for the Datadog agent.
 </p>
 
 </div>
@@ -165,6 +165,7 @@ apache.d/conf.yaml.example
 
 </span>
 Create a conf.yaml file with the following code:
+<br />
 <code>
 sudo cp conf.yaml.example conf.yaml
 </code>
@@ -334,7 +335,9 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 </code>
 
 <br />
+
 Any additional priveleges have been granted:
+
 <br />
 <code>
 mysql -u datadog --password='TFs1v1AEY9>kv84btq29n6Yy' -e "SELECT * FROM performance_schema.threads" && \
@@ -397,11 +400,11 @@ sudo service datadog-agent restart
 
 <br />
 check that mySQL has been integrated successfully
-
 <br />
 <code>
 sudo service datadog-agent restart
 </code>
+
 
 <br />
 If MySQL has been integrated succesfully, the output should contain a section similar to this:
