@@ -124,7 +124,7 @@ for the Datadog agent.)
 </div>
 
 <!-- Apache Integration, Configuration, and Monitoring -->
-
+<br />
 <h2>
 Monitoring the Apache Web Server
 </h2>
@@ -157,9 +157,7 @@ http://yourpage@example.com/server-status
 <br />
 <br />
 
-If this link throws a forbidden access error, then you'll need to
-
-<a href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
+If this link throws a forbidden access error, then you'll need to <a href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
 enable mod-status
 </a> manually.
 
@@ -205,6 +203,7 @@ When the agent runs, it will look for a conf.yaml file, and begin pulling metric
 To check that the agent is collecting data from Apache run the following two commands to:
 </p>
 
+<br />
 <p>
 restart the agent:
 
@@ -214,6 +213,7 @@ sudo service datadog-agent restart
 </code>
 
 <br />
+<br />
 check that Apache has been integrated successfully
 
 <br />
@@ -221,6 +221,7 @@ check that Apache has been integrated successfully
 sudo service datadog-agent restart
 </code>
 
+<br />
 <br />
 If Apache has been integrated succesfully, the output should contain a section similar to this:
 
@@ -277,7 +278,7 @@ Dashboards -> DasboardList -> Apache
 </div>
 
 <!-- MySQL Integration, Configuration, and Monitoring -->
-
+<br />
 <h2>
 Monitoring the MySQL Database
 </h2>
@@ -479,7 +480,7 @@ Dashboards -> DasboardList -> MySQL
 <!-- Custom Dashboards -->
 
 <div>
-
+<br />
 <h2> Custom Dashboards </h2>
 
 <p>
@@ -505,8 +506,8 @@ Dashboards -> New Dashboard
 <!-- Wrap up & Call to Action -->
 
 <div>
-
-<h3> Full LAMP Observability with Datadog </h3>
+<br />
+<h2> Full LAMP Observability with Datadog </h2>
 <p>
 The LAMP solution stack is the most popular approach for hosting web apps and websites. We've shown you just a few ways to collect and visualize key metrics from each layer of your LAMP stack.
 <p>
