@@ -1,6 +1,9 @@
+
+
+<!-- Intro to Lamp -->
 <h1> Monitoring the LAMP stack with Datadog  </h1>
 
-<br />
+<div>
 
 <p>
 The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components — Linux, Apache, MySQL, and PHP — and, though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
@@ -16,7 +19,13 @@ By providing real-time collection and vizualization of key metrics across each l
 
 <figure>
     <img src='keymetrics.png' alt='missing' />
-    <figcaption>A custom dashboard created with Datadog</figcaption>
+    <figcaption>
+  <font size = "1">
+  A custom dashboard created with Datadog
+  </font>
+
+
+    </figcaption>
 </figure>
 
 </p>
@@ -33,7 +42,10 @@ This post will walk you through the integration and configuration of each LAMP s
   <li>Customize, organize, and optimize your monitoring experience</li>
 </ul>
 
+<!-- Datadog Installation -->
 <h2>Installing the Datadog Agent</h2>
+
+<div>
 
 <p>
 After you've created your
@@ -72,6 +84,7 @@ If the installation was successful, you should see information about the running
 Getting the status from the agent. ============== Agent (v6.2.0) ============== Status date: 2018-05-16 19:45:31.773123 UTC Pid: 26471 Python Version: 2.7.12 Logs: Check Runners: 1 Log Level: info Paths ===== Config File: /etc/datadog-agent/datadog.yaml conf.d: /etc/datadog-agent/conf.d checks.d: /etc/datadog-agent/checks.d [...]
 </code>
 
+<br />
 <p>
 After that, you're ready to view your host's metrics in real-time via the Datadog dashboard: go to Infrastructure, HostMap, and click on the system panel that appears after your host has been selected.
 
@@ -83,9 +96,11 @@ After that, you're ready to view your host's metrics in real-time via the Datado
 <p>
 
 <figcaption>
+<font size = "1">
 the host's system metrics:
 <br />
 Infrastructure->HostMap->your Host->System
+</font>
 </figcaption>
 </figure>
 
@@ -107,24 +122,24 @@ to see a full list of
 for the Datadog agent.)
 </p>
 
+</div>
+
+<!-- Apache Integration, Configuration, and Monitoring -->
+
 <h2>
 Monitoring the Apache web server
 </h2>
+
+<div>
 
 <h3>
 Integration
 </h3>
 
 <p>
- Select the
- <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Apache tile
- </a>
+ Select the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Apache tile </a> in the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations </a>
 
- in the
- <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations
- </a>
-
- section of the Datadog website.
+section of the Datadog website.
 Following the directions in the tile, you may need to install
 
 <a href = "http://httpd.apache.org/docs/current/mod/mod_status.html">
@@ -256,19 +271,25 @@ on Datadog to view your server's metrics in real time.
 <img src = "ApacheDash.png">
 </p>
 <figcaption>
+<font size = "1">
 The Apache Dashboard:
 <br />
 Dashboards -> DasboardList -> Apache
+</font>
 </figcaption>
 </figure>
 
 <br />
 
-<!--MySQL-->
+</div>
+
+<!-- MySQL Integration, Configuration, and Monitoring -->
 
 <h2>
 Monitoring the MySQL Database
 </h2>
+
+<div>
 
 <h3>
 Integration
@@ -408,7 +429,7 @@ restart the agent:
 sudo service datadog-agent restart
 </code>
 
-<br/ >
+<br />
 check that mySQL has been integrated successfully
 
 <br />
@@ -455,17 +476,25 @@ on Datadog to view your server's metrics in real time.
 
 <figure>
 
-<img src = "MySQLdash.png">
+<img src = "mysqldash.png">
 </p>
 <figcaption>
+<font size = "1">
 The MySQL Dashboard:
 <br />
 Dashboards -> DasboardList -> MySQL
+</font>
 </figcaption>
 </figure>
 
 <br />
+
+</div>
+
 <!-- Custom Dashboards -->
+
+<div>
+
 <h2> Custom Dashboards </h2>
 
 <p>
@@ -478,11 +507,19 @@ Dashboarding page.
 <img src = "customdash.png">
 </p>
 <figcaption>
+<font size = "1">
 A Custom Dashboard:
 <br />
 Dashboards -> New Dashboard
+</font>
 </figcaption>
 </figure>
+
+</div>
+
+<!-- Wrap up & Call to Action -->
+
+<div>
 
 <h3> Full LAMP Observability with Datadog </h3>
 <p>
@@ -495,3 +532,5 @@ free trial.
 </p>
 
 </p>
+
+</div>
