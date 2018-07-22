@@ -23,9 +23,7 @@ By providing real-time collection and vizualization of key metrics across each l
   <font size = "1">
   A custom dashboard created with Datadog
   </font>
-
-
-    </figcaption>
+</figcaption>
 </figure>
 
 </p>
@@ -85,6 +83,7 @@ Getting the status from the agent. ============== Agent (v6.2.0) ============== 
 </code>
 
 <br />
+<br />
 <p>
 After that, you're ready to view your host's metrics in real-time via the Datadog dashboard: go to Infrastructure, HostMap, and click on the system panel that appears after your host has been selected.
 
@@ -127,7 +126,7 @@ for the Datadog agent.)
 <!-- Apache Integration, Configuration, and Monitoring -->
 
 <h2>
-Monitoring the Apache web server
+Monitoring the Apache Web Server
 </h2>
 
 <div>
@@ -137,13 +136,8 @@ Integration
 </h3>
 
 <p>
- Select the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Apache tile </a> in the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations </a>
-
-section of the Datadog website.
-Following the directions in the tile, you may need to install
-
-<a href = "http://httpd.apache.org/docs/current/mod/mod_status.html">
-mod-status on your Apache server.
+ Select the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Apache tile </a> in the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations </a> section of the Datadog website. Following the directions in the tile, you may need to install
+<a href = "http://httpd.apache.org/docs/current/mod/mod_status.html"> mod-status on your Apache server.
 </a>
 
 </p>
@@ -161,13 +155,13 @@ http://yourpage@example.com/server-status
 </code>
 
 <br />
+<br />
+
 If this link throws a forbidden access error, then you'll need to
 
 <a href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
 enable mod-status
-</a>
-
-manually.
+</a> manually.
 
 </p>
 
@@ -176,14 +170,13 @@ Configuration
 </h3>
 
 <p>
-To configure Apache to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
+To configure Apache to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory file.">
 
 <a href = "https://docs.datadoghq.com/agent/">
 apache.d/conf.yaml.example
 </a>
-file.
-</span>
 
+</span>
 Create a conf.yaml file with the following code:
 
 <p>
@@ -213,7 +206,6 @@ To check that the agent is collecting data from Apache run the following two com
 </p>
 
 <p>
-<br />
 restart the agent:
 
 <br />
@@ -252,6 +244,7 @@ Checks
 
 </p>
 
+<br />
 <h3>
 Monitoring
 </h3>
@@ -298,17 +291,9 @@ Integration
 <p>
  Select the
  <a href = "https://app.datadoghq.com/account/settings#integrations/mysql"> MySQL tile
- </a>
-
- in the
-
- <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations
- </a>
-
-
- section of the Datadog website.
+ </a> in the <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations
+ </a> section of the Datadog website.
 Following the directions on the tile, use the following commands to:
-
 </p>
 
 <p>
@@ -353,7 +338,7 @@ Use the following commands to check if:
 <p>
 
 <br />
-a Datadog user with replication rights has been created on the MySQL server
+a Datadog user with replication rights has been created on the MySQL server:
 <br />
 
 <code>
@@ -368,7 +353,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 
 <p>
 <br />
-Any additional priveleges have been granted
+Any additional priveleges have been granted:
 <br />
 <code>
 mysql -u datadog --password='TFs1v1AEY9>kv84btq29n6Yy' -e "SELECT * FROM performance_schema.threads" && \
@@ -381,7 +366,7 @@ echo -e "\033[0;31mMissing PROCESS grant\033[0m"
 
 </p>
 
-
+<br />
 <h3>
 Configuration
 </h3>
