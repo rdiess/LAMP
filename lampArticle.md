@@ -12,10 +12,14 @@ The LAMP stack is a set of open-source software used for creating websites and w
 By providing real-time collection and vizualization of key metrics across each layer of the LAMP stack, Datadog offers a flexible and customizeable way to monitor your web app's performance and usage.
 </p>
 
+<p>
+
 <figure>
     <img src='keymetrics.png' alt='missing' />
     <figcaption>A custom dashboard created with Datadog</figcaption>
 </figure>
+
+</p>
 
 </br>
 <p>
@@ -35,8 +39,7 @@ This post will walk you through the integration and configuration of each LAMP s
 After you've created your
 <a href="url">Datadog account</a>
 (or signed up for a 14-day
-<a href="https://www.datadoghq.com/">free trial</a>
-), you'll recieve an application key that you'll use to install the
+<a href="https://www.datadoghq.com/">free trial</a>), you'll recieve an application key that you'll use to install the
 <a href = "https://docs.datadoghq.com/agent/"> Datadog agent.</a> You can find the key in your <a href = "https://app.datadoghq.com/account/settings#api"> account </a>.
 
 
@@ -76,6 +79,9 @@ After that, you're ready to view your host's metrics in real-time via the Datado
 
 <img src = "HostSystemMetrics.png">
 </p>
+
+<p>
+
 <figcaption>
 the host's system metrics:
 <br />
@@ -84,6 +90,8 @@ Infrastructure->HostMap->your Host->System
 </figure>
 
 <br />
+
+</p>
 
 <p>
 Now that you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP.
@@ -140,7 +148,7 @@ http://yourpage@example.com/server-status
 <br />
 If this link throws a forbidden access error, then you'll need to
 
-<a = href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
+<a href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
 enable mod-status
 </a>
 
@@ -153,53 +161,43 @@ Configuration
 </h3>
 
 <p>
-To configure Apache to report metrics to the Datadog agent, you'll need to navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
+To configure Apache to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
 
 <a href = "https://docs.datadoghq.com/agent/">
 apache.d/conf.yaml.example
 </a>
-
+file.
 </span>
 
-file. Create a conf.yaml file with the following code:
+Create a conf.yaml file with the following code:
 
-<br />
+<p>
 <code>
 sudo cp conf.yaml.example conf.yaml
 </code>
+</p>
 
+<br />
 <p>
 Edit the new conf.yaml file to match the following configuration:
 
 </p>
 
 <p>
-<code>
-init_config:
-<br />
-<br />
-instances:
-<br />
-  -   apache_status_url: http://example.com/server-status?auto
-        <br >
-        # apache_user: example_user
-        <br />
-        # apache_password: example_password
-        <br />
-        tags:
-        <br />
-            -   instance:foo
-</code>
+
+<img src = "apacheconfig.png">
 
 </p>
 
 <br/>
 When the agent runs, it will look for a conf.yaml file, and begin pulling metrics from Apache when it finds it.
-</p>
+
 
 <p>
 To check that the agent is collecting data from Apache run the following two commands to:
+</p>
 
+<p>
 <br />
 restart the agent:
 
@@ -208,7 +206,7 @@ restart the agent:
 sudo service datadog-agent restart
 </code>
 
-<br/ >
+<br />
 check that Apache has been integrated successfully
 
 <br />
@@ -282,12 +280,15 @@ Integration
  </a>
 
  in the
+
  <a href = "https://app.datadoghq.com/account/settings#integrations/apache"> Integrations
  </a>
-</p>
+
 
  section of the Datadog website.
 Following the directions on the tile, use the following commands to:
+
+</p>
 
 <p>
 create a Datadog user on your MySQL server
@@ -370,10 +371,9 @@ Just like Apache, to configure mySQL to report metrics to the Datadog agent, you
 <a href = "https://docs.datadoghq.com/agent/">
 mysql.d/conf.yaml.example
 </a>
-
+file. Create a conf.yaml file with the following code:
 </span>
 
-file. Create a conf.yaml file with the following code:
 
 <br />
 <code>
@@ -386,21 +386,8 @@ sudo cp conf.yaml.example conf.yaml
 Edit the conf.yaml file to match the following configuration:
 
 </br>
-<code>
 
-init_config:
-
-instances:
-  - server: localhost
-    user: datadog
-    pass: TFs1v1AEY9>kv84btq29n6Yy
-    tags:
-        - optional_tag1
-        - optional_tag2
-    options:
-        replication: 0
-        galera_cluster: 1
-</code>
+<img src = "mysqlconfig.png">
 
 </p>
 
