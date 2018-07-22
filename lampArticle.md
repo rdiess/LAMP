@@ -9,8 +9,6 @@
 The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components — Linux, Apache, MySQL, and PHP — and, though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
 </p>
 
-<br />
-
 <p>
 By providing real-time collection and vizualization of key metrics across each layer of the LAMP stack, Datadog offers a flexible and customizeable way to monitor your web app's performance and usage.
 </p>
@@ -58,31 +56,27 @@ After you've created your
 <p>
 Run the following script to install the agent on your machine:
 
-</p>
-
 <code>
 DD_API_KEY=<YOUR_API_KEY> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 </code>
+</p>
 
 <p>
 To check the success of the installation, run:
 
-</p>
-
 <code>
 sudo datadog-agent status
 </code>
+</p>
 
 <p>
 If the installation was successful, you should see information about the running agent:
 
-</p>
-
 <code>
 Getting the status from the agent. ============== Agent (v6.2.0) ============== Status date: 2018-05-16 19:45:31.773123 UTC Pid: 26471 Python Version: 2.7.12 Logs: Check Runners: 1 Log Level: info Paths ===== Config File: /etc/datadog-agent/datadog.yaml conf.d: /etc/datadog-agent/conf.d checks.d: /etc/datadog-agent/checks.d [...]
 </code>
+</p>
 
-<br />
 <br />
 <p>
 After that, you're ready to view your host's metrics in real-time via the Datadog dashboard: go to Infrastructure, HostMap, and click on the system panel that appears after your host has been selected.
@@ -108,11 +102,7 @@ Infrastructure->HostMap->your Host->System
 </p>
 
 <p>
-Now that you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP.
-</p>
-
-<p>
-(Check out the
+Now that you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP. Check out the
 <a href = "https://docs.datadoghq.com/"> documentation
 </a>
 to see a full list of
@@ -155,7 +145,6 @@ http://yourpage@example.com/server-status
 </code>
 
 <br />
-<br />
 
 If this link throws a forbidden access error, then you'll need to <a href = "https://www.datadoghq.com/blog/collect-apache-performance-metrics/#apache-s-status-module">
 enable mod-status
@@ -176,8 +165,6 @@ apache.d/conf.yaml.example
 
 </span>
 Create a conf.yaml file with the following code:
-
-<p>
 <code>
 sudo cp conf.yaml.example conf.yaml
 </code>
@@ -252,10 +239,7 @@ Monitoring
 
 <p>
 Now that you have your Apache server integrated and configured properly, visit your
-
-<a href = "">
-Apache dashboard
-</a>
+<a href = ""> Apache dashboard </a>
 
 on Datadog to view your server's metrics in real time.
 </p>
@@ -334,10 +318,8 @@ sudo mysql -e "GRANT SELECT ON performance_schema.* TO 'datadog'@'localhost';"
 
 <p>
 Use the following commands to check if:
-</p>
 
-<p>
-
+<br />
 <br />
 a Datadog user with replication rights has been created on the MySQL server:
 <br />
@@ -350,9 +332,7 @@ mysql -u datadog --password='TFs1v1AEY9>kv84btq29n6Yy' -e "show slave status" &&
 echo -e "\033[0;32mMySQL grant - OK\033[0m" || \
 echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 </code>
-</p>
 
-<p>
 <br />
 Any additional priveleges have been granted:
 <br />
@@ -452,11 +432,7 @@ Monitoring
 
 <p>
 Now that you have your MySQL server integrated and configured properly, visit your
-
-<a href = "">
-MySQL dashboard
-</a>
-
+<a href = ""> MySQL dashboard </a>
 on Datadog to view your server's metrics in real time.
 </p>
 
