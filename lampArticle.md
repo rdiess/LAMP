@@ -183,8 +183,6 @@ Edit the new conf.yaml file to match the following configuration, substituting i
 
 <br/>
 When the agent runs, it will look for your conf.yaml file, and begin pulling metrics from Apache when it finds it.
-
-
 <p>
 To check that the agent is collecting data from Apache run the following two commands to:
 </p>
@@ -457,13 +455,14 @@ Custom metrics can be submitted to Datadog in a <a href = "https://docs.datadogh
 
 <p>
 First, create a .yaml file inside your /etc/datadog-agent/conf.d directory using the following code:
-</p>
-
+<br />
 <code>
 sudo touch yourMetricName.yaml
 </code>
 
 <br />
+</p>
+
 <p>
 Configure the <a href = "http://yaml.org/spec/1.2/spec.html" > Yaml file </a> using the following template:
 
