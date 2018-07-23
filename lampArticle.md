@@ -19,7 +19,7 @@ By providing real-time collection and vizualization of key metrics across each l
     <img src='keymetrics.png' alt='missing' />
     <figcaption>
   <font size = "1">
-  A custom dashboard created with Datadog
+  A custom dashboard created with Datadog for a sample LAMP stack
   </font>
 </figcaption>
 </figure>
@@ -35,7 +35,7 @@ This post will walk you through the integration and configuration of each LAMP s
   <li>Install the Datadog agent</li>
   <li>Integrate each layer of your LAMP stack with Datadog</li>
   <li>Configure Datadog to collect the desired metrics</li>
-  <li>Customize, organize, and optimize your monitoring experience</li>
+  <li>Customize, organize, and optimize your monitoring experience with custom metrics and custom dashboards</li>
 </ul>
 
 <!-- Datadog Installation -->
@@ -56,6 +56,7 @@ After you've created your
 <p>
 Run the following script to install the agent on your machine:
 
+<br />
 <code>
 DD_API_KEY=<YOUR_API_KEY> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 </code>
@@ -64,6 +65,7 @@ DD_API_KEY=<YOUR_API_KEY> bash -c "$(curl -L https://raw.githubusercontent.com/D
 <p>
 To check the success of the installation, run:
 
+<br />
 <code>
 sudo datadog-agent status
 </code>
@@ -71,7 +73,7 @@ sudo datadog-agent status
 
 <p>
 If the installation was successful, you should see information about the running agent:
-
+<br />
 <code>
 Getting the status from the agent. ============== Agent (v6.2.0) ============== Status date: 2018-05-16 19:45:31.773123 UTC Pid: 26471 Python Version: 2.7.12 Logs: Check Runners: 1 Log Level: info Paths ===== Config File: /etc/datadog-agent/datadog.yaml conf.d: /etc/datadog-agent/conf.d checks.d: /etc/datadog-agent/checks.d [...]
 </code>
@@ -102,13 +104,9 @@ Infrastructure->HostMap->your Host->System
 </p>
 
 <p>
-After you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP. Check out the
+After you've installed the Datadog Agent on your host, you can begin integrating the rest of your LAMP stack. Check out the
 <a href = "https://docs.datadoghq.com/"> documentation
-</a>
-to see a full list of
-<a href = "https://docs.datadoghq.com/agent/basic_agent_usage/amazonlinux/">commands
-</a>
-for the Datadog agent.
+</a> to see a full list of <a href = "https://docs.datadoghq.com/agent/basic_agent_usage/amazonlinux/">commands </a> for the Datadog agent. The rest of this article will walk you through the steps necessary to monitor each software component in LAMP with Datadog.
 </p>
 
 </div>
@@ -157,14 +155,14 @@ Configuration
 </h3>
 
 <p>
-To configure Apache to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory file.">
+To configure Apache to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory.">
 
 <a href = "https://docs.datadoghq.com/agent/">
-apache.d/conf.yaml.example
-</a>
+conf.d/apache.d/
+</a> directory.
 
 </span>
-Create a conf.yaml file with the following code:
+Create a conf.yaml file by copying the conf.yaml.example in the directory:
 <br />
 <code>
 sudo cp conf.yaml.example conf.yaml
@@ -173,7 +171,7 @@ sudo cp conf.yaml.example conf.yaml
 
 <br />
 <p>
-Edit the new conf.yaml file to match the following configuration:
+Edit the new conf.yaml file to match the following configuration, substituting in your password for the "pass" field:
 
 </p>
 
@@ -184,7 +182,7 @@ Edit the new conf.yaml file to match the following configuration:
 </p>
 
 <br/>
-When the agent runs, it will look for a conf.yaml file, and begin pulling metrics from Apache when it finds it.
+When the agent runs, it will look for your conf.yaml file, and begin pulling metrics from Apache when it finds it.
 
 
 <p>
@@ -214,22 +212,8 @@ sudo service datadog-agent restart
 If Apache has been integrated succesfully, the output should contain a section similar to this:
 
 <br />
-<code>
-Checks
-======
-<br />
-  [...]
-<br />
-<br />
-<br />
-  apache
-  <br />
-  ------
-  <br />
-      - instance #0 [OK]
-      - <br />
-      - Collected 8 metrics & 0 events
-</code>
+
+<img src = "Apachecheck.png">
 
 </p>
 
@@ -240,7 +224,7 @@ Monitoring
 
 <p>
 Now that you have Apache integrated and configured, click "install" at the bottom of the tile, and visit your
-<a href = "https://app.datadoghq.com/screen/integration/19/apache?page=0&is_auto=false&from_ts=1532285460000&to_ts=1532289060000&live=true"> Apache dashboard </a> to view your server's metrics in real time.
+<a href = "https://app.datadoghq.com/screen/integration/19/apache?page=0&is_auto=false&from_ts=1532285460000&to_ts=1532289060000&live=true"> Apache dashboard </a> to view your metrics. As illustrated in the example below, the collected data dynamically responds to server interaction in real time.
 </p>
 
 
@@ -250,7 +234,7 @@ Now that you have Apache integrated and configured, click "install" at the botto
 </p>
 <figcaption>
 <font size = "1">
-The Apache Dashboard:
+The Apache Dashboard for a sample LAMP stack
 <br />
 Dashboards -> DasboardList -> Apache
 </font>
@@ -355,20 +339,18 @@ Configuration
 </h3>
 
 <p>
-To configure mySQL to report metrics to the Datadog agent, you'll need to navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
+To configure MySQL to report metrics to the Datadog agent, navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory.">
 
 <a href = "https://docs.datadoghq.com/agent/">
-mysql.d/conf.yaml.example
-</a>
-file. Create a conf.yaml file with the following code:
+conf.d/mysql.d/
+</a> directory.
+
 </span>
-
-
+Create a conf.yaml file by copying the conf.yaml.example in the directory:
 <br />
 <code>
 sudo cp conf.yaml.example conf.yaml
 </code>
-
 </p>
 
 <p>
@@ -383,7 +365,7 @@ Edit the conf.yaml file to match the following configuration:
 <p>
 
 
-When the agent runs, it will look for a conf.yaml file, and begin pulling metrics from MySQL.
+When the agent runs, it will look for your conf.yaml file, and begin pulling metrics from MySQL.
 </p>
 
 <p>
@@ -406,25 +388,11 @@ sudo service datadog-agent restart
 
 
 <br />
-If MySQL has been integrated succesfully, the output should contain a section similar to this:
+If MySQL has been integrated succesfully, the output should contain a section like this:
 
 <br />
-<code>
-Checks
-======
-<br />
-  [...]
-<br />
-<br />
-<br />
-  mySQL
-  <br />
-  ------
-  <br />
-      - instance #0 [OK]
-      - <br />
-      - Collected 8 metrics & 0 events
-</code>
+
+<img src = "MySQLcheck.png">
 
 </p>
 
@@ -433,9 +401,8 @@ Monitoring
 </h3>
 
 <p>
-Now that you have your MySQL server integrated and configured, click "install" at the bottom of the MySQL tile, and visit your
-<a href = "https://app.datadoghq.com/dash/integration/12/mysql---overview?live=true&page=0&is_auto=false&from_ts=1532285329014&to_ts=1532288929014&tile_size=m"> MySQL dashboard </a>
-on Datadog to view your server's metrics in real time.
+Now that you have your MySQL server integrated and configured, click "install" at the bottom of the MySQL tile and visit your
+<a href = "https://app.datadoghq.com/dash/integration/12/mysql---overview?live=true&page=0&is_auto=false&from_ts=1532285329014&to_ts=1532288929014&tile_size=m"> MySQL dashboard </a> to view your MySQL metrics in real time.
 </p>
 
 <figure>
@@ -444,7 +411,7 @@ on Datadog to view your server's metrics in real time.
 </p>
 <figcaption>
 <font size = "1">
-The MySQL Dashboard:
+The MySQL Dashboard for a sample LAMP stack
 <br />
 Dashboards -> DasboardList -> MySQL
 </font>
@@ -472,7 +439,7 @@ Dashboarding page.
 </p>
 <figcaption>
 <font size = "1">
-A Custom Dashboard:
+A custom Dashboard for a sample LAMP stack
 <br />
 Dashboards -> New Dashboard
 </font>
@@ -519,15 +486,15 @@ A yaml configuration template
 
 <p>
 Create a python file inside your /etc/datadog-agent/checks.d directory using the following code:
-</p>
-
 <code>
 sudo touch yourMetricName.py
 </code>
 
+</p>
+
 </br>
 <p>
-Make sure that both the .py and .yaml files have matching names. When your agent runs, it will look for your .yaml file and run the code inside of your corresponding .py file, which can be configured to submit numerous metrics. Visit our Python <a href = "https://docs.datadoghq.com/api/?lang=python#overview"> documentation </a> for examples. After some configuring, you'll be able to submit metrics like the following:
+Make sure that both the .py and .yaml files have matching names. When your agent runs, it will look for your .yaml file and run the code inside your corresponding .py file, which can be configured to submit numerous metrics. Visit our Python <a href = "https://docs.datadoghq.com/api/?lang=python#overview"> documentation </a> for examples. With just a few lines of code, you'll be able to submit metrics like the following:
 </p>
 
 <img src = "responseTime.png">
