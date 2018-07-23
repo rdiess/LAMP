@@ -6,7 +6,7 @@
 <div>
 
 <p>
-The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components — Linux, Apache, MySQL, and PHP. Though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
+The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components: Linux, Apache, MySQL, and PHP. Though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
 </p>
 
 <p>
@@ -209,7 +209,7 @@ sudo service datadog-agent restart
 
 <br />
 <br />
-If Apache has been integrated succesfully, the output should contain a section similar to this:
+If Apache has been integrated succesfully, your output should contain a section like this:
 
 <br />
 
@@ -224,7 +224,7 @@ Monitoring
 
 <p>
 Now that you have Apache integrated and configured, click "install" at the bottom of the tile, and visit your
-<a href = "https://app.datadoghq.com/screen/integration/19/apache?page=0&is_auto=false&from_ts=1532285460000&to_ts=1532289060000&live=true"> Apache dashboard </a> to view your metrics. As illustrated in the example below, the collected data dynamically responds to server interaction in real time.
+<a href = "https://app.datadoghq.com/screen/integration/19/apache?page=0&is_auto=false&from_ts=1532285460000&to_ts=1532289060000&live=true"> Apache dashboard </a> to view your metrics. As illustrated in the example below, the collected data dynamically responds to server interaction in real-time.
 </p>
 
 
@@ -320,8 +320,7 @@ echo -e "\033[0;31mMissing REPLICATION CLIENT grant\033[0m"
 <br />
 
 Any additional priveleges have been granted:
-
-<br />
+</br />
 <code>
 mysql -u datadog --password='TFs1v1AEY9>kv84btq29n6Yy' -e "SELECT * FROM performance_schema.threads" && \
 echo -e "\033[0;32mMySQL SELECT grant - OK\033[0m" || \
@@ -365,12 +364,9 @@ Edit the conf.yaml file to match the following configuration:
 <p>
 
 
-When the agent runs, it will look for your conf.yaml file, and begin pulling metrics from MySQL.
-</p>
+When the agent runs, it will look for your conf.yaml file, and begin pulling metrics from MySQL. To check that the agent is collecting data from MySQL run the following two commands to:
 
-<p>
-To check that the agent is collecting data from MySQL run the following two commands to:
-
+<br />
 <br />
 restart the agent:
 
@@ -380,6 +376,7 @@ sudo service datadog-agent restart
 </code>
 
 <br />
+<br />
 check that mySQL has been integrated successfully
 <br />
 <code>
@@ -388,7 +385,7 @@ sudo service datadog-agent restart
 
 
 <br />
-If MySQL has been integrated succesfully, the output should contain a section like this:
+If MySQL has been integrated succesfully, your output should contain a section like this:
 
 <br />
 
@@ -402,7 +399,7 @@ Monitoring
 
 <p>
 Now that you have your MySQL server integrated and configured, click "install" at the bottom of the MySQL tile and visit your
-<a href = "https://app.datadoghq.com/dash/integration/12/mysql---overview?live=true&page=0&is_auto=false&from_ts=1532285329014&to_ts=1532288929014&tile_size=m"> MySQL dashboard </a> to view your MySQL metrics in real time.
+<a href = "https://app.datadoghq.com/dash/integration/12/mysql---overview?live=true&page=0&is_auto=false&from_ts=1532285329014&to_ts=1532288929014&tile_size=m"> MySQL dashboard </a> to view your MySQL metrics in real-time.
 </p>
 
 <figure>
@@ -470,10 +467,8 @@ sudo touch yourMetricName.yaml
 <p>
 Configure the <a href = "http://yaml.org/spec/1.2/spec.html" > Yaml file </a> using the following template:
 
-</p>
 
 <img src = "YamlExample.png">
-</p>
 <figcaption>
 <font size = "1">
 A yaml configuration template
@@ -482,10 +477,12 @@ A yaml configuration template
 </figcaption>
 </figure>
 
-<br />
+</p>
 
+<br />
 <p>
 Create a python file inside your /etc/datadog-agent/checks.d directory using the following code:
+<br />
 <code>
 sudo touch yourMetricName.py
 </code>
@@ -501,7 +498,7 @@ Make sure that both the .py and .yaml files have matching names. When your agent
 </p>
 <figcaption>
 <font size = "1">
-Http response time for a sample LAMP-based web app
+http response time for a sample LAMP-based web app
 <br />
 </font>
 </figcaption>
