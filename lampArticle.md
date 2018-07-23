@@ -6,7 +6,7 @@
 <div>
 
 <p>
-The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components — Linux, Apache, MySQL, and PHP — and, though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
+The LAMP stack is a set of open-source software used for creating websites and web applications. Lamp is named for its four original components — Linux, Apache, MySQL, and PHP. Though evolving to include alternatives like Python and Perl, it has retained its open-source nature. LAMP's cost-effective and flexible approach to web infrastructure makes it the most popular solution stack for hosting websites and web apps.
 </p>
 
 <p>
@@ -79,7 +79,7 @@ Getting the status from the agent. ============== Agent (v6.2.0) ============== 
 
 <br />
 <p>
-After that, you're ready to view your host's metrics in real-time via the Datadog dashboard: go to Infrastructure, HostMap, and click on the system panel that appears after your host has been selected.
+Now you're ready to view your host's metrics in real-time via the Datadog dashboard: go to Infrastructure, HostMap, and click on the system panel that appears after your host has been selected.
 
 <figure>
 
@@ -102,7 +102,7 @@ Infrastructure->HostMap->your Host->System
 </p>
 
 <p>
-Now that you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP. Check out the
+After you've installed the Datadog Agent on your host, you can begin integrating the rest of your lamp stack. The remainder of the article will walk you through the steps necessary to use the agent to monitor each software component in LAMP. Check out the
 <a href = "https://docs.datadoghq.com/"> documentation
 </a>
 to see a full list of
@@ -239,11 +239,10 @@ Monitoring
 </h3>
 
 <p>
-Now that you have your Apache server integrated and configured properly, visit your
-<a href = ""> Apache dashboard </a>
-
-on Datadog to view your server's metrics in real time.
+Now that you have Apache integrated and configured, click "install" at the bottom of the tile, and visit your
+<a href = "https://app.datadoghq.com/screen/integration/19/apache?page=0&is_auto=false&from_ts=1532285460000&to_ts=1532289060000&live=true"> Apache dashboard </a> to view your server's metrics in real time.
 </p>
+
 
 <figure>
 
@@ -283,7 +282,7 @@ Following the directions on the tile, use the following commands to:
 </p>
 
 <p>
-create a Datadog user on your MySQL server
+create a Datadog user on your MySQL server:
 
 <br />
 <code>
@@ -356,7 +355,7 @@ Configuration
 </h3>
 
 <p>
-Just like Apache, to configure mySQL to report metrics to the Datadog agent, you'll need to navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
+To configure mySQL to report metrics to the Datadog agent, you'll need to navigate to your a <span title = "select your platform and then go to the 'configuration' section for instructions on how to navigate to your particular conf.d directory">
 
 <a href = "https://docs.datadoghq.com/agent/">
 mysql.d/conf.yaml.example
@@ -434,8 +433,8 @@ Monitoring
 </h3>
 
 <p>
-Now that you have your MySQL server integrated and configured properly, visit your
-<a href = ""> MySQL dashboard </a>
+Now that you have your MySQL server integrated and configured, click "install" at the bottom of the MySQL tile, and visit your
+<a href = "https://app.datadoghq.com/dash/integration/12/mysql---overview?live=true&page=0&is_auto=false&from_ts=1532285329014&to_ts=1532288929014&tile_size=m"> MySQL dashboard </a>
 on Datadog to view your server's metrics in real time.
 </p>
 
@@ -479,6 +478,68 @@ Dashboards -> New Dashboard
 </font>
 </figcaption>
 </figure>
+
+</div>
+
+
+<!-- Custom Metrics -->
+<div>
+<br />
+<h2> Custom Metrics </h2>
+
+<p>
+Custom metrics can be submitted to Datadog in a <a href = "https://docs.datadoghq.com/developers/metrics/#submitting-metrics"> number of ways </a>. The following method closely follows  the model of integration, configuration, and monitoring as described in the past two steps.
+</p>
+
+<p>
+First, create a .yaml file inside your /etc/datadog-agent/conf.d directory using the following code:
+</p>
+
+<code>
+sudo touch yourMetricName.yaml
+</code>
+
+<br />
+<p>
+Configure the <a href = "http://yaml.org/spec/1.2/spec.html" > Yaml file </a> using the following template:
+
+</p>
+
+<img src = "YamlExample.png">
+</p>
+<figcaption>
+<font size = "1">
+A yaml configuration template
+<br />
+</font>
+</figcaption>
+</figure>
+
+<br />
+
+<p>
+Create a python file inside your /etc/datadog-agent/checks.d directory using the following code:
+</p>
+
+<code>
+sudo touch yourMetricName.py
+</code>
+
+</br>
+<p>
+Make sure that both the .py and .yaml files have matching names. When your agent runs, it will look for your .yaml file and run the code inside of your corresponding .py file, which can be configured to submit numerous metrics. Visit our Python <a href = "https://docs.datadoghq.com/api/?lang=python#overview"> documentation </a> for examples. After some configuring, you'll be able to submit metrics like the following:
+</p>
+
+<img src = "responseTime.png">
+</p>
+<figcaption>
+<font size = "1">
+Http response time for a sample LAMP-based web app
+<br />
+</font>
+</figcaption>
+</figure>
+
 
 </div>
 
