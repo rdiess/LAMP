@@ -1,3 +1,3 @@
 # LAMP
 
-Please see the completed article, located at lampArticle.md.
+This Article explains how to monitor the LAMP stack using the Datadog agent.
